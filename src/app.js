@@ -1,6 +1,9 @@
 const path=require("path");
 const express=require("express");
 const app=express();
+
+const port= process.env.PORT || 3000;
+
 const request=require('request');
 const geocode=require("./utils/geocode");
 const weatherstack=require("./utils/weatherstack");
@@ -11,9 +14,6 @@ app.use(express.static(path.join(__dirname,"../pri")));
 
 //app.set('views', path.join(__dirname, 'views'));
 
-app.listen(3000,()=>{
-    console.log("server on port 3000");
-})
 
 // app.get('',(req,res)=>
 // {
@@ -59,3 +59,7 @@ else{
     });
 
 
+    app.listen(port,()=>{
+        console.log("server on port" +port);
+    })
+    
